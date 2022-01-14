@@ -98,7 +98,7 @@ function Homeserver({ onChange }) {
       }
       setHs({ selected: hsList[selectedHs], list: hsList });
     } catch {
-      setHs({ selected: 'matrix.org', list: ['matrix.org'] });
+      setHs({ selected: 'nimcord.xyz', list: ['nimcord.xyz'] });
     }
   }, []);
 
@@ -114,29 +114,6 @@ function Homeserver({ onChange }) {
     <>
       <div className="homeserver-form">
         <Input name="homeserver" onChange={handleHsInput} value={hs?.selected} forwardRef={hsRef} label="Homeserver" />
-        <ContextMenu
-          placement="right"
-          content={(hideMenu) => (
-            <>
-              <MenuHeader>Homeserver list</MenuHeader>
-              {
-                hs?.list.map((hsName) => (
-                  <MenuItem
-                    key={hsName}
-                    onClick={() => {
-                      hideMenu();
-                      hsRef.current.value = hsName;
-                      setHs({ selected: hsName, list: hs.list });
-                    }}
-                  >
-                    {hsName}
-                  </MenuItem>
-                ))
-              }
-            </>
-          )}
-          render={(toggleMenu) => <IconButton onClick={toggleMenu} src={ChevronBottomIC} />}
-        />
       </div>
       {process.error !== undefined && <Text className="homeserver-form__error" variant="b3">{process.error}</Text>}
       {process.isLoading && (
