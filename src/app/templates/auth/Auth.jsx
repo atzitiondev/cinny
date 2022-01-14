@@ -113,7 +113,7 @@ function Homeserver({ onChange }) {
   return (
     <>
       <div className="homeserver-form">
-        <Input name="homeserver" onChange={handleHsInput} value={hs?.selected} forwardRef={hsRef} label="Homeserver" />
+        <Input name="homeserver" onChange={handleHsInput} value={hs?.selected} forwardRef={hsRef} label="Homeserver" disabled="disabled" />
       </div>
       {process.error !== undefined && <Text className="homeserver-form__error" variant="b3">{process.error}</Text>}
       {process.isLoading && (
