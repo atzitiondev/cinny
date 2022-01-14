@@ -17,7 +17,7 @@ Header.propTypes = {
 function TitleWrapper({ children }) {
   return (
     <div className="header__title-wrapper">
-      {children}
+      Nimcord
     </div>
   );
 }
